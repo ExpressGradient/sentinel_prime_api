@@ -26,6 +26,11 @@ text_vectorizer.adapt(train_x)
 app = Flask(__name__)
 
 
+@app.get('/')
+def home():
+    return 'Greetings from Sentinel Prime'
+
+
 @app.post('/predict')
 def predict():
     text = request.json['text']
@@ -37,4 +42,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
