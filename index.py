@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 from tensorflow import keras
 import numpy as np
 import pandas as pd
@@ -24,6 +25,7 @@ text_vectorizer.adapt(train_x)
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.get('/')
